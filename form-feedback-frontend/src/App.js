@@ -123,7 +123,11 @@ function App() {
             "Content-Type": "application/json",
           },
         };
-        const res = await axios.post("/form", formState, config);
+        const res = await axios.post(
+          "http://localhost:5000/form",
+          formState,
+          config
+        );
         console.log(res.data);
         console.log(formState);
       }

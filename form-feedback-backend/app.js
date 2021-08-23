@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 //DB Connection
 import "./dbConnect.js";
 const port = 5000;
@@ -7,6 +8,7 @@ const port = 5000;
 import formDataModel from "./models/formData.js";
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 app.post("/form", async (req, res) => {

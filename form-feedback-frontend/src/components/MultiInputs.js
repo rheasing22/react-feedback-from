@@ -15,9 +15,9 @@ function MultiInputs(props) {
   const [option1, option2] = options;
 
   return (
-    <div>
+    <div data-name={name}>
       <label htmlFor={name}>{title}</label>
-      <div>
+      <div data-child={name}>
         <input
           className={option1}
           type={type}

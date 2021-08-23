@@ -1,4 +1,69 @@
-.error-msg {
-  color: red;
-  font-size: 12px;
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  background-color: #2362b9;
+}
+
+form {
+  max-width: 50rem;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+[for="attend"] {
+  display: block;
+}
+[for="attend"] + select {
+  display: block;
+  width: 70%;
+  outline: none;
+  padding: 0.2rem 0.3rem;
+}
+[name="money"] span,
+[name="entertaining"] span {
+  display: inline-block;
+  width: 2.1rem;
+  height: 2.1rem;
+  position: relative;
+}
+[name="money"] span input,
+[name="entertaining"] span input {
+  width: 2rem;
+  height: 2rem;
+
+  background-color: transparent;
+  cursor: pointer;
+}
+[name="money"] span label,
+[name="entertaining"] span label {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  user-select: none;
+}
+/* 
+[name="entertaining"] span input:checked + label {
+  background: #ccf;
+  border-color: #ccf;
+} */
+
+label {
+  font-size: 1.2rem;
+}
+
+[type="radio"] {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.3rem;
 }
