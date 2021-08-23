@@ -1,0 +1,17 @@
+{
+  "name": "react-feedback-form",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "frontend": "npm start --prefix form-feedback-frontend",
+    "backend": "npm start --prefix form-feedback-backend",
+    "mern": "concurrently  'npm run backend' 'npm run frontend'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^6.2.1"
+  }
+}
