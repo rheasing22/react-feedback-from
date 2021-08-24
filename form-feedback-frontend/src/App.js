@@ -31,7 +31,6 @@ function App() {
   const [formState, setFormState] = useState(intialFormState);
 
   const [errorState, setError] = useState(intialErrorState);
-  const [msg, setmsg] = useState("");
 
   const validate = () => {
     let validRegex =
@@ -118,7 +117,6 @@ function App() {
 
   const onSubmit = async (e) => {
     try {
-      setmsg("");
       e.preventDefault();
       const isError = validate();
       if (!isError) {
