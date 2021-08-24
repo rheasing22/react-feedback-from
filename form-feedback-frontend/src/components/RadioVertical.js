@@ -1,14 +1,27 @@
 import React from "react";
 
-const RadioVertical = ({ name, title, options, onChange, errorText }) => {
+const RadioVertical = ({
+  name,
+  title,
+  options,
+  onChange,
+  errorText,
+  value,
+}) => {
   return (
     <div>
       <label htmlFor={name}>{title}</label>
       <div>
-        <div name={name} onChange={onChange}>
+        <div name={name}>
           {options.map((option, index) => (
             <div key={index}>
-              <input type="radio" name={name} value={option} />
+              <input
+                type="radio"
+                name={name}
+                value={option}
+                onChange={onChange}
+                checked={value === option}
+              />
               <label>{option}</label>
             </div>
           ))}

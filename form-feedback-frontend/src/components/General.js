@@ -3,18 +3,19 @@ import InputBox from "./InputBox";
 import RadioBoxes from "./RadioBoxes";
 import RadioVertical from "./RadioVertical";
 
-const General = ({ onChange, errorState }) => {
+const General = ({ onChange, errorState, formState }) => {
   const { attendError, entertainingError, moneyError, best_partError } =
     errorState;
-
+  const { attend, entertaining, money, best_part } = formState;
   return (
     <div className="general-div">
       <InputBox
         title={"Which event did you attend?"}
-        options={["option1", "option2", "option3", "option4"]}
+        options={["Please select", "option1", "option2", "option3", "option4"]}
         name="attend"
         onChange={onChange}
         errorText={attendError}
+        value={attend}
       />
       <RadioBoxes
         title={"Overall, how entertaining was the event? "}
@@ -22,6 +23,7 @@ const General = ({ onChange, errorState }) => {
         options={["None", "Fired Up"]}
         onChange={onChange}
         errorText={entertainingError}
+        value={entertaining}
       />
 
       <RadioBoxes
@@ -30,6 +32,7 @@ const General = ({ onChange, errorState }) => {
         options={["Not at all", "Definitely"]}
         onChange={onChange}
         errorText={moneyError}
+        value={money}
       />
 
       <RadioVertical
@@ -38,6 +41,7 @@ const General = ({ onChange, errorState }) => {
         options={["option1", "option2", "option3", "option4"]}
         onChange={onChange}
         errorText={best_partError}
+        value={best_part}
       />
     </div>
   );

@@ -148,7 +148,11 @@ function App() {
         </div>
 
         <form onSubmit={onSubmit}>
-          <General onChange={onChange} errorState={errorState} />
+          <General
+            onChange={onChange}
+            errorState={errorState}
+            formState={formState}
+          />
           <Contact
             onChange={onChange}
             formState={formState}

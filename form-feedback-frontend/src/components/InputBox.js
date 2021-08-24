@@ -1,14 +1,13 @@
 import React from "react";
 
-const InputBox = ({ title, options, name, onChange, errorText }) => {
+const InputBox = ({ title, options, name, onChange, errorText, value }) => {
   return (
     <>
       <div>
         <label htmlFor={name}>{title}</label>
-        <select name={name} id={name} onChange={onChange}>
-          <option value="please Select">Please select</option>
+        <select name={name} id={name} value={value} onChange={onChange}>
           {options.map((option, index) => (
-            <option key={index} value={option}>
+            <option key={index} value={option} name={name}>
               {option}
             </option>
           ))}
