@@ -8,7 +8,7 @@ const General = ({ onChange, errorState }) => {
     errorState;
 
   return (
-    <div>
+    <div className="general-div">
       <InputBox
         title={"Which event did you attend?"}
         options={["option1", "option2", "option3", "option4"]}

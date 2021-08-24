@@ -12,7 +12,7 @@ function Contact({ onChange, formState, errorState }) {
     Phone_NumberError,
   } = errorState;
   return (
-    <div>
+    <div className="contact-div">
       <MultiInputs
         title={"Your Name"}
         name={"personal_name"}

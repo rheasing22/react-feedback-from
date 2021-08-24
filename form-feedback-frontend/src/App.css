@@ -11,16 +11,38 @@ body {
   background-color: #2362b9;
 }
 
-form {
-  max-width: 50rem;
+.container {
+  max-width: 752px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  margin-top: 72px;
+  margin-bottom: 72px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 4px rgba(17, 24, 38, 0.21);
+  padding: 2rem 2.5rem;
+  color: #102d80;
 }
 
-[for="attend"] {
+.general-div > div,
+.contact-div > div,
+.header {
+  padding-bottom: 20px;
+  border-color: #c3cad8;
+  background-color: #ffffff;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  padding: 0.4rem;
+  border-radius: 4px;
+  border: 0.5px solid gray;
+}
+
+input [for="attend"] {
   display: block;
 }
 [for="attend"] + select {
@@ -28,6 +50,12 @@ form {
   width: 70%;
   outline: none;
   padding: 0.2rem 0.3rem;
+}
+
+[name="money"],
+[name="entertaining"] {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
 }
 [name="money"] span,
 [name="entertaining"] span {
@@ -66,4 +94,78 @@ label {
   width: 1rem;
   height: 1rem;
   margin-right: 0.3rem;
+}
+
+.error-msg {
+  color: red;
+  font-size: 0.75em;
+  margin-top: 5px;
+  margin-bottom: 8px;
+}
+
+.email {
+  display: flex;
+}
+
+.multi-input input + label {
+  display: block;
+  font-size: 0.8rem;
+}
+
+.multi-input {
+  display: flex;
+}
+
+.multi-input div {
+  width: 100%;
+  padding-right: 1rem;
+}
+
+.multi-input input {
+  width: 100%;
+}
+
+.submit-button {
+  display: flex;
+  justify-content: center;
+}
+button {
+  padding: 0.3rem 5rem;
+  background-color: darkorange;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-message {
+  padding-top: 2rem;
+  text-align: center;
+  font-size: 1.5rem;
+  color: green;
+}
+
+/* media quieries */
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .multi-input {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .submit-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  [name="money"],
+  [name="entertaining"] {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
 }

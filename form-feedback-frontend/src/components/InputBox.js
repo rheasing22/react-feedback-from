@@ -13,8 +13,8 @@ const InputBox = ({ title, options, name, onChange, errorText }) => {
             </option>
           ))}
         </select>
+        <div className="error-msg">{errorText}</div>
       </div>
-      <div className="error-msg">{errorText}</div>
     </>
   );
 };

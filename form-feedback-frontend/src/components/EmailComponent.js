@@ -9,9 +9,9 @@ const EmailComponent = ({
   errorText,
 }) => {
   return (
-    <>
+    <div>
+      <label htmlFor={name}>{title}</label>
       <div>
-        <label htmlFor={name}>{title}</label>
         <input
           type="text"
           placeholder={placeholder}
@@ -20,8 +20,9 @@ const EmailComponent = ({
           value={value}
         />
       </div>
+
       <div className="error-msg">{errorText}</div>
-    </>
+    </div>
   );
 };
 

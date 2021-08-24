@@ -16,7 +16,8 @@ function App() {
     Area_CodeError: "",
     Phone_NumberError: "",
   };
-  const [formState, setFormState] = useState({
+
+  const intialFormState = {
     attend: "",
     entertaining: 0,
     money: 0,
@@ -26,9 +27,11 @@ function App() {
     Email: "",
     Area_Code: "",
     Phone_Number: "",
-  });
+  };
+  const [formState, setFormState] = useState(intialFormState);
 
   const [errorState, setError] = useState(intialErrorState);
+  const [msg, setmsg] = useState("");
 
   const validate = () => {
     let validRegex =
@@ -115,6 +118,7 @@ function App() {
 
   const onSubmit = async (e) => {
     try {
+      setmsg("");
       e.preventDefault();
       const isError = validate();
       if (!isError) {
@@ -123,13 +127,12 @@ function App() {
             "Content-Type": "application/json",
           },
         };
-        const res = await axios.post(
-          "http://localhost:5000/form",
-          formState,
-          config
-        );
+
+        const res = await axios.post("/form", formState, config);
+        setmsg("submitted");
         console.log(res.data);
-        console.log(formState);
+        //setFormState(intialFormState);
+        setError(intialErrorState);
       }
     } catch (err) {
       console.log(err);
@@ -138,15 +141,27 @@ function App() {
 
   return (
     <>
-      <form onSubmit={onSubmit}>
-        <General onChange={onChange} errorState={errorState} />
-        <Contact
-          onChange={onChange}
-          formState={formState}
-          errorState={errorState}
-        />
-        <button type="submit">Submit Form</button>
-      </form>
+      <div className="container">
+        <div className="header">
+          <h1>Event Feedback</h1>
+          <div>You can write anything in here about the event</div>
+        </div>
+
+        <form onSubmit={onSubmit}>
+          <General onChange={onChange} errorState={errorState} />
+          <Contact
+            onChange={onChange}
+            formState={formState}
+            errorState={errorState}
+          />
+
+          <div className="submit-button">
+            <button type="submit">Submit Form</button>
+          </div>
+
+          <div className="submit-message">{msg}</div>
+        </form>
+      </div>
     </>
   );
 }
