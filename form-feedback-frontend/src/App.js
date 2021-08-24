@@ -129,7 +129,7 @@ function App() {
         const res = await axios.post("/form", formState, config);
         setmsg("submitted");
         console.log(res.data);
-        //setFormState(intialFormState);
+        setFormState(intialFormState);
         setError(intialErrorState);
       }
     } catch (err) {
@@ -146,7 +146,11 @@ function App() {
         </div>
 
         <form onSubmit={onSubmit}>
-          <General onChange={onChange} errorState={errorState} />
+          <General
+            onChange={onChange}
+            errorState={errorState}
+            formState={formState}
+          />
           <Contact
             onChange={onChange}
             formState={formState}
