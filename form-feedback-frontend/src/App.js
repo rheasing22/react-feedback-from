@@ -131,7 +131,7 @@ function App() {
         const res = await axios.post("/form", formState, config);
         setmsg("submitted");
         console.log(res.data);
-        //setFormState(intialFormState);
+        setFormState(intialFormState);
         setError(intialErrorState);
       }
     } catch (err) {
