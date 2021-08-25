@@ -36,8 +36,7 @@ function App() {
   const [show, setShow] = useState(false);
 
   const validate = () => {
-    let validRegex =
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    let validRegex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     let isError = false;
     let errors = intialErrorState;
 
