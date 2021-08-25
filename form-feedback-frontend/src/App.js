@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import General from "./components/General.js";
 import Contact from "./components/Contact.js";
 import axios from "axios";
+import Modal from "./components/Modal";
 import "./App.css";
+import "./Modal.css";
 
 function App() {
   const intialErrorState = {
@@ -31,6 +33,7 @@ function App() {
   const [formState, setFormState] = useState(intialFormState);
 
   const [errorState, setError] = useState(intialErrorState);
+  const [show, setShow] = useState(false);
 
   const validate = () => {
     let validRegex =
@@ -40,55 +43,56 @@ function App() {
 
     if (formState.attend === "" || formState.attend === "please Select") {
       isError = true;
-      errors.attendError = "Required";
+      errors.attendError = "Event attended not selected";
     }
 
     if (formState.entertaining === 0) {
       isError = true;
-      errors.entertainingError = "Required";
+      errors.entertainingError = "No value selected, select a value from 1-10";
     }
 
     if (formState.money === 0) {
       isError = true;
-      errors.moneyError = "Required";
+      errors.moneyError = "No value selected, select a value from 1-10";
     }
 
     if (formState.best_part === "") {
       isError = true;
-      errors.best_partError = "Required";
+      errors.best_partError = "Best part option not selected";
     }
 
     if (formState.First_Name === "") {
       isError = true;
-      errors.First_NameError = "Required";
+      errors.First_NameError = "First Name is not entered";
     }
 
     if (formState.Last_Name === "") {
       isError = true;
 
-      errors.Last_NameError = "Required";
+      errors.Last_NameError = "Last Name is not entered";
     }
 
     if (formState.Email === "") {
       isError = true;
-      errors.EmailError = "Required";
+      errors.EmailError = "Email is not entered";
     }
 
     if (formState.Area_Code === "") {
       isError = true;
 
-      errors.Area_CodeError = "Required";
+      errors.Area_CodeError = "Area code is not entered";
     }
 
     if (formState.Phone_Number === "") {
       isError = true;
 
-      errors.Phone_NumberError = "Required";
+      errors.Phone_NumberError = "Phone number is not entered";
     }
 
     if (formState.Email && !formState.Email.match(validRegex)) {
       isError = true;
-      errors.EmailError = "Email is not in correct format";
+      errors.EmailError =
+        "Email is not in correct format , correct format: abc@gmail.com";
     }
 
     if (formState.Area_Code && formState.Area_Code.length !== 3) {
@@ -127,7 +131,7 @@ function App() {
         };
 
         const res = await axios.post("/form", formState, config);
-        setmsg("submitted");
+        setShow(true);
         console.log(res.data);
         setFormState(intialFormState);
         setError(intialErrorState);
@@ -161,7 +165,7 @@ function App() {
             <button type="submit">Submit Form</button>
           </div>
 
-          <div className="submit-message">{msg}</div>
+          <Modal show={show} onClose={() => setShow(false)} />
         </form>
       </div>
     </>

@@ -1,0 +1,60 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-container {
+  width: 600px;
+  max-width: 100%;
+  height: 400px;
+  max-height: 100%;
+
+  background-color: #fff;
+}
+
+.modal-button {
+  padding: 0.3em 5em;
+  background-color: tomato;
+  outline: none;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+.modal-bttn-container,
+.check,
+.success-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.check {
+  background-color: green;
+  color: black;
+  height: 50%;
+  flex-wrap: wrap;
+}
+
+.success-box {
+  flex-direction: column;
+  height: 30%;
+}
+.fa-check-circle {
+  font-size: 5rem;
+  color: #fff;
+}
+
+@media screen and (max-width: 576px) {
+  .modal-container {
+    max-width: 90%;
+    max-height: 50%;
+  }
+}
